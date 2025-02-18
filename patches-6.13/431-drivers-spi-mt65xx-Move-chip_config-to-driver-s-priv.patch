@@ -46,12 +46,12 @@ Signed-off-by: SkyLake.Huang <skylake.huang@mediatek.com>
  static const struct of_device_id mtk_spi_of_match[] = {
  	{ .compatible = "mediatek,spi-ipm",
  		.data = (void *)&mtk_ipm_compat,
-@@ -352,7 +344,6 @@ static int mtk_spi_hw_init(struct spi_ma
+@@ -345,7 +345,6 @@
  {
  	u16 cpha, cpol;
  	u32 reg_val;
 -	struct mtk_chip_config *chip_config = spi->controller_data;
- 	struct mtk_spi *mdata = spi_master_get_devdata(master);
+ 	struct mtk_spi *mdata = spi_controller_get_devdata(host);
  
  	cpha = spi->mode & SPI_CPHA ? 1 : 0;
 @@ -402,7 +393,7 @@ static int mtk_spi_hw_init(struct spi_ma

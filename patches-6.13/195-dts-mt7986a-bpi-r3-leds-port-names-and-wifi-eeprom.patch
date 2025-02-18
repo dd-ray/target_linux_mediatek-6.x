@@ -187,10 +187,10 @@
 --- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3-nor.dtso
 +++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3-nor.dtso
 @@ -55,6 +55,7 @@
- 					partition@c00000 {
- 						label = "fit";
- 						reg = <0xc00000 0x1400000>;
-+						compatible = "denx,fit";
- 					};
- 				};
+ 			partition@c00000 {
+ 				label = "fit";
+ 				reg = <0xc00000 0x1400000>;
++				compatible = "denx,fit";
  			};
+ 		};
+ 	};

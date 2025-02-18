@@ -171,7 +171,7 @@ Signed-off-by: SkyLake.Huang <skylake.huang@mediatek.com>
  
 --- a/include/linux/spi/spi.h
 +++ b/include/linux/spi/spi.h
-@@ -330,6 +330,40 @@ struct spi_driver {
+@@ -351,6 +351,40 @@
  	struct device_driver	driver;
  };
  
@@ -209,9 +209,9 @@ Signed-off-by: SkyLake.Huang <skylake.huang@mediatek.com>
 +	struct list_head list;
 +};
 +
- static inline struct spi_driver *to_spi_driver(struct device_driver *drv)
- {
- 	return drv ? container_of(drv, struct spi_driver, driver) : NULL;
+ #define to_spi_driver(__drv)   \
+ 	( __drv ? container_of_const(__drv, struct spi_driver, driver) : NULL )
+ 
 @@ -727,6 +761,11 @@ struct spi_controller {
  	void			*dummy_rx;
  	void			*dummy_tx;
