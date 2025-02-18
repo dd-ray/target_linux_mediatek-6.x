@@ -1,0 +1,1 @@
+# target_linux_mediatek-6.x-
