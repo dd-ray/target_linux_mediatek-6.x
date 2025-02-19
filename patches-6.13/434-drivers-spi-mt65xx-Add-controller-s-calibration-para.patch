@@ -15,17 +15,17 @@ Signed-off-by: SkyLake.Huang <skylake.huang@mediatek.com>
  	return IRQ_HANDLED;
  }
  
-+static int mtk_spi_append_caldata(struct spi_controller *ctlr)
++static int mtk_spi_append_caldata(struct spi_controller *host)
 +{
 +	struct spi_cal_target *cal_target = kmalloc(sizeof(*cal_target), GFP_KERNEL);
-+	struct mtk_spi *mdata = spi_master_get_devdata(ctlr);
++	struct mtk_spi *mdata = spi_controller_get_devdata(host);
 +
 +	cal_target->cal_item = &mdata->get_tick_dly;
 +	cal_target->cal_min = 0;
 +	cal_target->cal_max = 7;
 +	cal_target->step = 1;
 +
-+	list_add(&cal_target->list, ctlr->cal_target);
++	list_add(&cal_target->list, host->cal_target);
 +
 +	return 0;
 +}

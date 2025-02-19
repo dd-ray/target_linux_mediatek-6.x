@@ -4,6 +4,7 @@
  * Copyright (c) 2023 Realtek Semiconductor Corp. All rights reserved.
  */
 
+#include "rtk_osal.h"
 #include "type.h"
 #include "error.h"
 #include "rtk_phylib_def.h"
