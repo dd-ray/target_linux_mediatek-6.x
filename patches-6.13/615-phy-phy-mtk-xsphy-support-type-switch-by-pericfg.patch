@@ -161,7 +161,7 @@ Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 +
 +		retval = phy_type_syscon_get(inst, child_np);
 +		if (retval)
-+			goto put_child;
++			return PTR_ERR(inst->ref_clk);;
  	}
  
  	provider = devm_of_phy_provider_register(dev, mtk_phy_xlate);
